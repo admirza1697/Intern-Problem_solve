@@ -1,0 +1,22 @@
+class Solution {
+public ListNode removeNthFromEnd(ListNode head, int n) {
+ListNode dummy = new ListNode(-1);
+dummy.next = head;
+pos = n+1;
+
+dfs(dummy);
+return dummy.next;
+}
+
+int pos;
+public void dfs(ListNode right){
+if(right == null) return;
+
+dfs(right.next);
+pos--;
+
+if(pos == 0){
+    right.next = right.next.next;
+}
+}
+}
